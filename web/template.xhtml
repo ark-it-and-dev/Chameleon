@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Milk Way</title>
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div id="todo">
+            <div id="topo">
+                <div id="logo">
+                    <img src="resources/images/logo_inicial.PNG" alt="" width="200" height="100"/>
+                </div>
+                <img src="resources/images/logo_principal.png" alt="" width="700" height="100"/>
+            </div>
+            <div id="inicial">
+                <h:form>
+                    <p:growl id="messages"></p:growl>                    
+                    <p:toolbar>
+                        <f:facet name="left">
+                            <p:commandButton value="Inicio" action="index.xhtml" ajax="false" icon="ui-icon-contact"></p:commandButton>
+                            <p:commandButton value="Quem Somos" action="quemSomosNos" ajax="false" icon="ui-icon-person"></p:commandButton>
+                            <p:commandButton value="Compra Segura" action="compraSegura" ajax="false" icon="ui-icon-bookmark"></p:commandButton>
+                            <p:commandButton value="Contato" ajax="false" action="contato" icon="ui-icon-contact"></p:commandButton>
+                            <p:commandButton value="Formas de Pagamentos" action="formasDePagamento" ajax="false" icon="ui-icon-tag"></p:commandButton>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:inputText  placeholder="Buscar"> </p:inputText>
+                            <p:commandButton  value="Login" action="login.xhtml" ajax="false" icon="ui-icon-locked"></p:commandButton>
+                            <p:commandButton  value="Carrinho" action="carrinho.xhtml" icon="ui-icon-cart"></p:commandButton>
+                        </f:facet>
+                    </p:toolbar>
+                </h:form>
+            </div>        
+            <div id="meio">
+                <div id="esquerda">
+                    <div id="menu">
+                        <h:form>
+                            <p:growl autoUpdate="true"/> 
+                            <p:panelMenu style="width:300px; background: white; height: 900px;">
+                                <p:submenu label="Biscoitos">
+                                    <p:menuitem value="Água e Sal" icon="ui-icon-cart"/>
+                                    <p:menuitem value="Cream Cracker"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Diet e Light"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Doces"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Especiais"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Recheados"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Salgados"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Torradas"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Wafers"  icon="ui-icon-cart" />
+                                    <p:menuitem value="Bolachas"   icon="ui-icon-cart" action="recheadoTrakinas.xhtml" /> 
+                                </p:submenu>
+                                <p:submenu label="Bomboniere">
+                                    <p:menuitem value="Balas e Cia"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Bombons"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Chocolates"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Diet e Light"  icon="ui-icon-cart" />
+                                    <p:menuitem value="Gomas de Mascar"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Importados"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Pão de Mel"   icon="ui-icon-cart" />
+                                </p:submenu>
+                                <p:separator />
+                                <p:submenu label="Mercearia Doce" >
+                                    <p:menuitem value="Achocolatado"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Alimentos Infantis Doces"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Gelatinas e Cia"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Ingredientes Doces"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Ceriais Matinais e Barras"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Geléias"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Diet e Light"   icon="ui-icon-cart" />
+                                </p:submenu>
+                            </p:panelMenu>
+                        </h:form>
+                    </div>
+                </div>
+
+                <div id="miolo">
+                    <ui:insert name="body">
+
+                    </ui:insert>
+                </div>
+            </div>
+
+
+            <div id="rodape">
+                <div class="rodape_direita">
+                    <tr>
+                        <td>
+                            <font face="Arial" size="5">
+                                <b>COMPARTILHE:</b>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="www.facebook.com.br"><img src="resources/images/facebook.png" alt=""/></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="www.twitter.com.br"><img src="resources/images/twitter.png" alt=""/></a>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

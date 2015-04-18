@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+
+            <h:form>
+
+                <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                <p:wizard flowListener="#{validaCadastro.onFlowProcess}">
+
+                    <p:tab id="cadastroLogin" title="Login e Senha">
+                        <p:panel header="Escolha um Login e Senha">
+                            <p:messages />
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Login: *" />
+                                <p:inputText value="#{validaCadastro.usuario.login}" required="true" label="Escolha um Login"/>
+
+                                <h:outputText value="Senha: *" />
+                                <p:password value="#{validaCadastro.usuario.senha}" required="true" label="Digite sua Senha"/>
+
+                                <h:outputText value="Digite a senha Novamente: *" />
+                                <p:password value="#{validaCadastro.usuario.senha2}" rendered="true" label="Digite a Senha Novamente" />
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+
+                    <p:tab id="pessoal" title="Informações Pessoais">
+                        <p:panel header="Digite suas Informações Pessoais">
+                            <p:messages />
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Nome: *" />
+                                <p:inputText value="#{validaCadastro.usuario.nome}" required="true" label="Nome"/>
+
+                                <h:outputText value="Sobrenome: *" />
+                                <p:inputText value="#{validaCadastro.usuario.sobrenome}" required="true" label="Sobrenome"/>
+
+                                <h:outputText value="Idade: " />
+                                <p:inputText value="#{validaCadastro.usuario.idade}" />
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+
+                    <p:tab id="endereco" title="Endereço">
+                        <p:panel header="Preencha os campos de Endereço">
+                            <p:messages />
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Estado: " />
+                                <p:inputText value="#{validaCadastro.usuario.estado}" />
+                                
+                                <h:outputText value="Cidade: " />
+                                <p:inputText value="#{validaCadastro.usuario.cidade}" />
+                                
+                                <h:outputText value="CEP: " />
+                                <p:inputText value="#{validaCadastro.usuario.cep}" />
+
+
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+
+                    <p:tab id="contato" title="Contato">
+                        <p:panel header="Informações para Contato">
+                            <p:messages />
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Telefone: " />
+                                <p:inputText value="#{validaCadastro.usuario.telefone}"/>
+
+                                <h:outputText value="Celular: " />
+                                <p:inputText value="#{validaCadastro.usuario.celular}"/>
+
+                                <h:outputText  value="E-mail: " />
+                                <p:inputText  value="#{validaCadastro.usuario.email}"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+
+                    <p:tab id="confirmacaoFinal" title="Confirmação">
+                        <p:panel header="Confirmação">
+                            <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Nome: " />
+                                    <h:outputText value="#{validaCadastro.usuario.nome}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Sobrenome: " />
+                                    <h:outputText value="#{validaCadastro.usuario.sobrenome}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Idade: " />
+                                    <h:outputText value="#{validaCadastro.usuario.idade}" styleClass="outputLabel"/>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Estado: " />
+                                    <h:outputText value="#{validaCadastro.usuario.estado}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="CEP: " />
+                                    <h:outputText value="#{validaCadastro.usuario.cep}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Cidade: " />
+                                    <h:outputText value="#{validaCadastro.usuario.cidade}" styleClass="outputLabel"/>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Email: " />
+                                    <h:outputText value="#{validaCadastro.usuario.email}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Telefone " />
+                                    <h:outputText value="#{validaCadastro.usuario.telefone}" styleClass="outputLabel"/>
+
+                                    <h:outputText value="Celular: " />
+                                    <h:outputText value="#{validaCadastro.usuario.celular}" styleClass="outputLabel"/>
+
+                                    <h:outputText />
+                                    <h:outputText />
+                                </h:panelGrid>
+                            </h:panelGrid>
+                        </p:panel>
+                        <p:commandButton value="Finalizar Cadastro" actionListener="#{validaCadastro.salvar()}" update="growl" process="@this"/>
+                    </p:tab>
+                </p:wizard>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
