@@ -8,7 +8,7 @@
     <ui:composition template="template.xhtml">
         <ui:define name="body">
             <p:imageSwitch effect="zoom">
-                <ui:repeat value="#{imagesView.images}" var="image" >
+                <ui:repeat value="#{carrosselImagens.images}" var="image" >
                     <p:graphicImage name="/images/#{image}" width="847" height="330" style="background: white"/>
                 </ui:repeat>
             </p:imageSwitch>
