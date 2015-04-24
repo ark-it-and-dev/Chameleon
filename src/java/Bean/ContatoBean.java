@@ -7,6 +7,8 @@ package Bean;
 
 import javax.faces.bean.ManagedBean;
 import java.util.Properties;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -30,7 +32,7 @@ public class ContatoBean {
     private String mensagem;
     
     public void enviar (){
-                System.out.println("0");
+
         //Parâmetros de conexão com servidor Gmail
         Properties propriedades = new Properties();
         propriedades.put("mail.smtp.host", "smtp.gmail.com");
@@ -38,7 +40,7 @@ public class ContatoBean {
         propriedades.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         propriedades.put("mail.smtp.auth", "true");
         propriedades.put("mail.smtp.port", "465");
-        System.out.println("1");
+
         Session sessao = Session.getInstance(
                 propriedades,
                 new javax.mail.Authenticator() {
@@ -71,12 +73,15 @@ public class ContatoBean {
                             );
             //Envio da mensagem
             Transport.send(messagem);
-
+            //msg de confirmação de envio
+            FacesMessage msg = new FacesMessage("Obrigado pela sua opinão. Em breve entraremos em contato!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+            
         } catch (MessagingException erro) {
             throw new RuntimeException(erro);
         }
     }
-
+    
     public String getMensagem(){
         return this.mensagem;
     }
