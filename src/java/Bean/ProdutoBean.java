@@ -1,6 +1,7 @@
 package Bean;
 
-import businessObjects.Produto;
+import br.com.ChameleonEJB.DAO.ProdutoDAO;
+import br.com.ChameleonEJB.Model.Produto;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,8 @@ import javax.faces.bean.ManagedBean;
 public class ProdutoBean {
 
     Produto produto = new Produto();
-    List<Produto> listaProdutos = new ArrayList<>();
+    ProdutoDAO prodDao = new ProdutoDAO();
+    List<Produto> listaProdutos = prodDao.allWhereStatusD();
 
     public ProdutoBean() {
         Produto prod = new Produto();
