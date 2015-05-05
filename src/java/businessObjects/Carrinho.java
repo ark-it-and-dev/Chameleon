@@ -1,7 +1,8 @@
 package businessObjects;
 
-public class Carrinho extends Pedido {
-    
+import java.util.List;
 
-    
+public class Carrinho {
+
+    private List<ItemCarrinho> itens;
 }

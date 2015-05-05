@@ -2,15 +2,13 @@ package businessObjects;
 
 import Enumerations.StatusPedido;
 import java.math.BigDecimal;
-import java.util.List;
 
 public class Pedido {
 
     private Long id;
     private BigDecimal quantidade;
     private BigDecimal valorTotal;
-    private List<Produto> listaProduto;
-    private Cliente cliente;
+    private Carrinho carrinho;
     private StatusPedido statusPedido;
 
     public Pedido() {
@@ -40,20 +38,12 @@ public class Pedido {
         this.valorTotal = valorTotal;
     }
 
-    public List<Produto> getListaProduto() {
-        return listaProduto;
+    public Carrinho getCarrinho() {
+        return carrinho;
     }
 
-    public void setListaProduto(List<Produto> listaProduto) {
-        this.listaProduto = listaProduto;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
     }
 
     public StatusPedido getStatusPedido() {
