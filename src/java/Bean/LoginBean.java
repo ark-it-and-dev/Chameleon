@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Bean;
 
 import javax.faces.bean.ManagedBean;
 
-/**
- *
- * @author Fernando Benitez
- */
 @ManagedBean
 public class LoginBean {
 
@@ -43,11 +34,10 @@ public class LoginBean {
     }
 
     public void Entrar() {
-        String a = getLogin();
-        String b = getSenha();
-
-        if (a.equals("admin") && b.equals("admin")) {
-            
+        if (email.equals("admin") && senha.equals("admin")) {
+            //redireciona para página templateAdmin.xhtml
+        } else {
+            //mostra mensagem de senha incorreta
         }
     }
 

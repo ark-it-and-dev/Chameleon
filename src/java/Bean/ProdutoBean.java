@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 public class ProdutoBean {
 
     Produto produto = new Produto();
     @EJB
-    ProdutoRemote prodDao;
+    ProdutoRemote prodDao = new ProdutoDAO();
     List<Produto> listaProdutos = new ArrayList<>();
 
     public ProdutoBean() {
@@ -54,11 +55,11 @@ public class ProdutoBean {
         prod.setMarca("Nutella");
         prod.setPreco(BigDecimal.valueOf(49.99));
         prod.setDescricao("Creme de chocolate Nutella");
-        listaProdutos.add(prod);
+//        listaProdutos.add(prod);
     }
 
     public List<Produto> getListaProdutos() {
-        listaProdutos = prodDao.all();
+        //listaProdutos = prodDao.all();
         return listaProdutos;
     }
 
@@ -68,7 +69,6 @@ public class ProdutoBean {
 
     public void adicionarProduto() {
         try {
-            produto.setStatus(StatusProduto.D);
             prodDao.save(produto);
             System.out.println("sucesso");
         } catch (Exception erro) {
@@ -88,4 +88,14 @@ public class ProdutoBean {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
+
+    public SelectItem[] getStatusProduto() {
+        SelectItem[] items = new SelectItem[StatusProduto.values().length];
+        int i = 0;
+        for (StatusProduto s : StatusProduto.values()) {
+            items[i++] = new SelectItem(s, s.getLabel());
+        }
+        return items;
+    }
+
 }

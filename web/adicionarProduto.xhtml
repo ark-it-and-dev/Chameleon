@@ -19,6 +19,10 @@
                     <b>Descrição:</b> <p:inputTextarea value="#{produtoBean.produto.descricao}"/>
                     <b>Preço:</b> <p:inputText size="40" value="#{produtoBean.produto.preco}"/>
                     <b>Marca:</b> <p:inputText size="40" value="#{produtoBean.produto.marca}"/>
+                    <b>Status:</b> <h:selectOneMenu value="#{produtoBean.produto.status}">
+                        <f:selectItems value="#{produtoBean.statusProduto}"/>
+                        <f:selectItems itemValue="I" itemLabel="Indisponível"/>
+                    </h:selectOneMenu>
                     <br/><br/><br/><br/>
                     <p:commandButton value="Adicionar Produto" action="#{produtoBean.adicionarProduto()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
                 </p:panelGrid>

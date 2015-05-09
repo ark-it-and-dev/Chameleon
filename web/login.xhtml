@@ -20,7 +20,7 @@
                                 <h:inputSecret id="senha" value="#{loginBean.senha}" style="border-radius: 10px" required="true" requiredMessage="Digite a Senha" />
                                 <h:message id="msgSenha" for="senha" style="color: red" />
                             </h:panelGrid>
-                            <p:commandButton value="Logar" action="templateAdmin.xhtml" style="border-radius: 10px; font-family: calibri" ajax="false" validateClient="true"/>
+                            <p:commandButton value="Logar" action="#{loginBean.entrar()}" style="border-radius: 10px; font-family: calibri" ajax="false" validateClient="true"/>
                         </h:form>
                     </td>
                     <td align="center" style="width: 50%">
@@ -28,9 +28,9 @@
                         <h:form>
                             <h:panelGrid columns="3">
                                 <h:outputText value="Email:" style="font-family: calibri" />
-                                <h:inputText id="email" value="#{implementar}" style="border-radius: 10px" />
+                                <h:inputText id="email" value="#{validaCadastroBean.usuario.email}" style="border-radius: 10px" />
                             </h:panelGrid>
-                            <p:commandButton value="Cadastrar" action="cadastroCliente.xhtml" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                            <p:commandButton value="Cadastrar" action="#{validaCadastroBean.findClientByEmail()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
                         </h:form>
                     </td>
                 </tr>
