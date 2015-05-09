@@ -1,20 +1,26 @@
 package Bean;
 
 import br.com.ChameleonEJB.DAO.ProdutoDAO;
+import br.com.ChameleonEJB.Enum.StatusProduto;
 import br.com.ChameleonEJB.Model.Produto;
+import br.com.ChameleonEJB.Remote.ProdutoRemote;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class ProdutoBean {
 
     Produto produto = new Produto();
-    ProdutoDAO prodDao = new ProdutoDAO();
-    List<Produto> listaProdutos = prodDao.allWhereStatusD();
+    @EJB
+    ProdutoRemote prodDao;
+    List<Produto> listaProdutos = new ArrayList<>();
 
     public ProdutoBean() {
+        //listaProdutos = prodDao.allWhereStatusD();
+
         Produto prod = new Produto();
         prod.setNome("Biscoito");
         prod.setMarca("Trakinas");
@@ -52,6 +58,7 @@ public class ProdutoBean {
     }
 
     public List<Produto> getListaProdutos() {
+        listaProdutos = prodDao.all();
         return listaProdutos;
     }
 
@@ -60,7 +67,14 @@ public class ProdutoBean {
     }
 
     public void adicionarProduto() {
-        listaProdutos.add(produto);
+        try {
+            produto.setStatus(StatusProduto.D);
+            prodDao.save(produto);
+            System.out.println("sucesso");
+        } catch (Exception erro) {
+            System.out.println(erro.getMessage()
+            );
+        }
     }
 
     public void removerProduto(Produto p) {

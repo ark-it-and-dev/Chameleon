@@ -11,7 +11,7 @@
         <ui:define name="body">
             <h:form>
                 <p:accordionPanel multiple="true">
-                    <p:tab title="#{implementar}">
+                    <p:tab title="#{produtoBean.produto.nome}">
                         <table>
                             <tr>
                                 <td>
@@ -20,7 +20,7 @@
                                 <td>
                                     <h:panelGrid columns="2">
                                         <h:outputText value="A partir de " style="font-family: calibri;font-size: 20px;color: green" />
-                                        <h:outputText value="#{implementar}" style="font-family: calibri;font-size: 20px; color: green;">
+                                        <h:outputText value="#{produtoBean.produto.preco}" style="font-family: calibri;font-size: 20px; color: green;">
                                             <f:convertNumber type="currency" locale="pt_BR" maxFractionDigits="2" />
                                         </h:outputText>
                                     </h:panelGrid>
@@ -32,7 +32,7 @@
                     </p:tab>
                     <p:tab title="Descrição">
                         <h:panelGrid columns="1">
-                            <h:outputText value="#{implementar}" escape="false" style="font-family: calibri;font-size: 20px"/>
+                            <h:outputText value="#{produtoBean.produto.descricao}" escape="false" style="font-family: calibri;font-size: 20px"/>
                         </h:panelGrid>
                     </p:tab>
                 </p:accordionPanel>

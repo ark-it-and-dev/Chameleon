@@ -13,13 +13,13 @@
                 <p:accordionPanel multiple="true">
                     <p:tab title="Adicionar Produtos">
                         <h:panelGrid columns="2">
-                            <b>Nome do Produto:</b> <p:inputText size="40"/>
-                            <b>Descrição:</b> <p:inputTextarea />
-                            <b>Preço:</b> <p:inputText size="40"/>
-                            <b>Imagem</b> <p:growl id="messages" showDetail="true"/>
+                            <b>Nome do Produto:</b> <p:inputText size="40" value="#{produtoBean.produto.nome}"/>
+                            <b>Descrição:</b> <p:inputTextarea value="#{produtoBean.produto.descricao}"/>
+                            <b>Preço:</b> <p:inputText size="40" value="#{produtoBean.produto.preco}"/>
+                            <b>Imagem</b> <p:growl id="messages" showDetail="true" />
                             <p:fileUpload value="#{fileUploadView.file}"></p:fileUpload>
                             <br />
-                            <p:commandButton value="Adicionar no Produto" action="#{implementar}" style="border-radius: 10px; font-family: calibri" ajax="false" icon="ui-icon-disk"/>
+                            <p:commandButton value="Adicionar no Produto" action="#{produtoBean.adicionarProduto()}" style="border-radius: 10px; font-family: calibri" ajax="false" icon="ui-icon-disk"/>
                         </h:panelGrid>
                     </p:tab>
                 </p:accordionPanel>

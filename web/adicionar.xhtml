@@ -20,7 +20,7 @@
                     <b>Preço:</b> <p:inputText size="40" value="#{produtoBean.produto.preco}"/>
                     <b>Marca:</b> <p:inputText size="40" value="#{produtoBean.produto.marca}"/>
                     <br/><br/><br/><br/>
-                    <p:commandButton value="Adicionar Produto" action="#{produtoBean.adicionarProduto}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                    <p:commandButton value="Adicionar Produto" action="#{produtoBean.adicionarProduto()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
                 </p:panelGrid>
             </h:form>
         </ui:define>
