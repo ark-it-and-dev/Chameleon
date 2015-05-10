@@ -1,6 +1,8 @@
 package Bean;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class LoginBean {
@@ -33,11 +35,13 @@ public class LoginBean {
         this.email = email;
     }
 
-    public void Entrar() {
+    public void entrar() {
+        
         if (email.equals("admin") && senha.equals("admin")) {
             //redireciona para página templateAdmin.xhtml
         } else {
-            //mostra mensagem de senha incorreta
+            FacesMessage msg = new FacesMessage("Usuário / senha incorretos");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
 

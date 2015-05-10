@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Bean;
 
 import br.com.ChameleonEJB.Model.Cliente;
@@ -55,12 +50,13 @@ public class ValidaCadastroBean implements Serializable {
         }
     }
 
-    public void findClientByEmail() {
-        Cliente cli = cliRemote.getByEmail(usuario.getEmail());
+    public void verifyEmail(String email) {
+        Cliente cli = cliRemote.getByEmail(email);
         if (cli == null) {
             //Envia para pag cadastroCliente.xhtml
         } else {
-            // informa que email já existe
+            FacesMessage msg = new FacesMessage("O email já existe. Favor informar outro e-mail para o cadastro");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
 }

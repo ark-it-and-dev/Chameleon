@@ -28,9 +28,9 @@
                         <h:form>
                             <h:panelGrid columns="3">
                                 <h:outputText value="Email:" style="font-family: calibri" />
-                                <h:inputText id="email" value="#{validaCadastroBean.usuario.email}" style="border-radius: 10px" />
+                                <h:inputText id="email" value="#{validaCadastroBean.usuario.email}" style="border-radius: 10px" required="true"/>
                             </h:panelGrid>
-                            <p:commandButton value="Cadastrar" action="#{validaCadastroBean.findClientByEmail()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                            <p:commandButton value="Cadastrar" action="#{validaCadastroBean.verifyEmail(email)}" style="border-radius: 10px; font-family: calibri" ajax="false" />
                         </h:form>
                     </td>
                 </tr>
