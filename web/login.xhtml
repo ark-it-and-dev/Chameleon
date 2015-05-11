@@ -11,14 +11,14 @@
                     <td align="center" style="width: 50%">
                         <h1 style="font-family: calibri">Login</h1>
                         <h:form>
-                            <h:panelGrid columns="3">
+                            <h:panelGrid columns="2">
                                 <h:outputText value="Login:" style="font-family: calibri" />
                                 <h:inputText id="login" value="#{loginBean.login}" style="border-radius: 10px" required="true" requiredMessage="Digite o Email" />
-                                <h:message id="msgEmail" for="email" style="color: red" />
+                                
                                 
                                 <h:outputText value="Senha:" style="font-family: calibri" />
                                 <h:inputSecret id="senha" value="#{loginBean.senha}" style="border-radius: 10px" required="true" requiredMessage="Digite a Senha" />
-                                <h:message id="msgSenha" for="senha" style="color: red" />
+                                
                             </h:panelGrid>
                             <p:commandButton value="Logar" action="#{loginBean.entrar()}" style="border-radius: 10px; font-family: calibri" ajax="false" validateClient="true"/>
                         </h:form>
@@ -28,9 +28,10 @@
                         <h:form>
                             <h:panelGrid columns="3">
                                 <h:outputText value="Email:" style="font-family: calibri" />
-                                <h:inputText id="email" value="#{validaCadastroBean.usuario.email}" style="border-radius: 10px" required="true"/>
+                                <h:inputText id="email" value="#{validaCadastroBean.mail}" style="border-radius: 10px" required="true" requiredMessage="O email não pode ficar em branco"/>
+                                
                             </h:panelGrid>
-                            <p:commandButton value="Cadastrar" action="#{validaCadastroBean.verifyEmail(email)}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                            <p:commandButton value="Cadastrar" action="#{validaCadastroBean.verifyEmail()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
                         </h:form>
                     </td>
                 </tr>

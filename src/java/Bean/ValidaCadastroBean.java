@@ -19,6 +19,15 @@ public class ValidaCadastroBean implements Serializable {
 
     private UsuarioBean usuario = new UsuarioBean();
     private boolean proximo;
+    private String mail;
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
     public UsuarioBean getUsuario() {
         return usuario;
@@ -50,8 +59,8 @@ public class ValidaCadastroBean implements Serializable {
         }
     }
 
-    public void verifyEmail(String email) {
-        Cliente cli = cliRemote.getByEmail(email);
+    public void verifyEmail() {
+        Cliente cli = cliRemote.getByEmail(mail);
         if (cli == null) {
             //Envia para pag cadastroCliente.xhtml
         } else {
